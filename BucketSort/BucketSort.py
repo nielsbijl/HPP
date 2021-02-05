@@ -1,3 +1,6 @@
+import sys
+
+
 def bucketSortFunctionalRecursive(data: list, maxDigitPosition: int, digitPosition: int = -1) -> list:
     buckets = [[], [], [], [], [], [], [], [], [], []]
     for item in data[:]:  # distribution pass
@@ -62,6 +65,15 @@ def bucketSortRecursive(data):
     if positive:
         positive = bucketSortFunctionalRecursive(positive, int(len(str(max(positive)))))
     return negative + positive
+
+
+def bucketSortFloats(data):
+    multiply = sys.maxsize
+    data = [int(item * multiply) for item in data]
+    data = bucketSort(data)
+    data = [item / multiply for item in data]
+    return data
+
 
 
 
