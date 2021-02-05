@@ -25,9 +25,9 @@ def plotTimeComplexity(algorithm):
     plt.show()
 
 
-randomTestLists = [random.sample(range(-10000, 1000), 1000),
-                   random.sample(range(-10000, 10000), 10000),
-                   random.sample(range(-300000, 300000), 30000)]
+randomTestLists = [random.sample(range(-1000000, 1000000), 1000),
+                   random.sample(range(-1000000, 1000000), 10000),
+                   random.sample(range(-1000000, 1000000), 30000)]
 sortedTestList = sorted(randomTestLists[2])
 reversedSortedTestList = sorted(randomTestLists[2], reverse=True)
 
@@ -37,8 +37,14 @@ print("Het sorteren van de lijst met random 30.000 items duurde:", testSortTime(
 print("Het sorteren van de lijst met gesorteerde 30.000 items duurde:", testSortTime(bucketSort, sortedTestList), "seconden.")
 print("Het sorteren van de lijst met omgekeerde gesorteerde 30.000 items duurde:", testSortTime(bucketSort, reversedSortedTestList), "seconden.")
 
-# plotTimeComplexity(bucketSort)
-# plotTimeComplexity(bucketSortRecursive)
+print("\n")
 
-# print("Het sorteren van de lijst met random 30.000 items duurde:", testSortTime(bucketSort, randomTestLists[2]), "seconden.")
-# print("Het sorteren van de lijst met random 30.000 items duurde:", testSortTime(bucketSortRecursive, randomTestLists[2]), "seconden.")
+print("Het recursive sorteren van de lijst met random 1.000 items duurde:", testSortTime(bucketSortRecursive, randomTestLists[0]), "seconden.")
+print("Het recursive sorteren van de lijst met random 10.000 items duurde:", testSortTime(bucketSortRecursive, randomTestLists[1]), "seconden.")
+print("Het recursive sorteren van de lijst met random 30.000 items duurde:", testSortTime(bucketSortRecursive, randomTestLists[2]), "seconden.")
+print("Het recursive sorteren van de lijst met gesorteerde 30.000 items duurde:", testSortTime(bucketSortRecursive, sortedTestList), "seconden.")
+print("Het recursive sorteren van de lijst met omgekeerde gesorteerde 30.000 items duurde:", testSortTime(bucketSortRecursive, reversedSortedTestList), "seconden.")
+
+for x in range(5):
+    plotTimeComplexity(bucketSortRecursive)
+

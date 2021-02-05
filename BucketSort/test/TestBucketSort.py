@@ -32,9 +32,14 @@ class TestBucketSort(unittest.TestCase):
         testCasePositive = [100.1, 3.1287937493248700000000000000000001, 97.6, 5, 122, 1.000023, 10000, 2.99]
         testCaseNegative = [-100.1, -3.1287937493248700000000000000000001, -97.6, -5, -122, -1.000023, -10000, -2.99]
         testCasePositiveAndNegative = [-100.1, 3.1287937493248700000000000000000001, -97.6, 5, -122, -1.000023, 10000, -2.99]
-        self.assertEqual(bucketSortFloats(testCasePositive), sorted(testCasePositive))
-        self.assertEqual(bucketSortFloats(testCaseNegative), sorted(testCaseNegative))
-        self.assertEqual(bucketSortFloats(testCasePositiveAndNegative), sorted(testCasePositiveAndNegative))
+
+        self.assertEqual(bucketSortFloats(data=testCasePositive, sortAlgoritme=bucketSort), sorted(testCasePositive))
+        self.assertEqual(bucketSortFloats(data=testCaseNegative, sortAlgoritme=bucketSort), sorted(testCaseNegative))
+        self.assertEqual(bucketSortFloats(data=testCasePositiveAndNegative, sortAlgoritme=bucketSort), sorted(testCasePositiveAndNegative))
+
+        self.assertEqual(bucketSortFloats(data=testCasePositive, sortAlgoritme=bucketSortRecursive), sorted(testCasePositive))
+        self.assertEqual(bucketSortFloats(data=testCaseNegative, sortAlgoritme=bucketSortRecursive), sorted(testCaseNegative))
+        self.assertEqual(bucketSortFloats(data=testCasePositiveAndNegative, sortAlgoritme=bucketSortRecursive), sorted(testCasePositiveAndNegative))
 
 
 if __name__ == '__main__':

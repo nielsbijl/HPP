@@ -67,10 +67,10 @@ def bucketSortRecursive(data):
     return negative + positive
 
 
-def bucketSortFloats(data):
+def bucketSortFloats(data: list, sortAlgoritme = bucketSort):
     multiply = sys.maxsize
     data = [int(item * multiply) for item in data]
-    data = bucketSort(data)
+    data = sortAlgoritme(data)
     data = [item / multiply for item in data]
     return data
 
