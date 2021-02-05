@@ -45,6 +45,7 @@ print("Het recursive sorteren van de lijst met random 30.000 items duurde:", tes
 print("Het recursive sorteren van de lijst met gesorteerde 30.000 items duurde:", testSortTime(bucketSortRecursive, sortedTestList), "seconden.")
 print("Het recursive sorteren van de lijst met omgekeerde gesorteerde 30.000 items duurde:", testSortTime(bucketSortRecursive, reversedSortedTestList), "seconden.")
 
-for x in range(5):
-    plotTimeComplexity(bucketSortRecursive)
+
+plotTimeComplexity(bucketSortRecursive)
+plotTimeComplexity(bucketSort)
 
