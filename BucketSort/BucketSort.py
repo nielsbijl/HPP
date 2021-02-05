@@ -3,6 +3,8 @@ import sys
 
 def bucketSortFunctionalRecursive(data: list, maxDigitPosition: int, digitPosition: int = -1) -> list:
     """
+    Werkt alleen met alle positieve gehele getallen!
+
     Plaats elke waarde van de een-dimensionale array in een rij van de bucket array, gebaseerd op het meest rechtse cijfer in het getal (de "een"-waarde). Bijvoorbeeld, 97 wordt geplaatst in rij 7, 3 wordt geplaatst in rij 3 en 100 wordt geplaatst in rij 0. Deze stap heet de distribution pass.
     Loop door de bucket array rij voor rij, en kopieer de waardes terug in de originele array. Deze stap heet de gathering pass. De volgorde van de hierboven genoemde getallen is dus nu 100, 3, 97.
     Herhaal dit proces voor elke volgende digit-positie (dus voor de tientallen, honderdtallen, etc.). Na de laatste gathering pass is de array gesorteerd. Dit wordt recursive gedaan.
@@ -26,6 +28,8 @@ def bucketSortFunctionalRecursive(data: list, maxDigitPosition: int, digitPositi
 
 def bucketSortFunctional(data: list) -> list:
     """
+    Werkt alleen met alle positieve gehele getallen!
+
     Plaats elke waarde van de een-dimensionale array in een rij van de bucket array, gebaseerd op het meest rechtse cijfer in het getal (de "een"-waarde). Bijvoorbeeld, 97 wordt geplaatst in rij 7, 3 wordt geplaatst in rij 3 en 100 wordt geplaatst in rij 0. Deze stap heet de distribution pass.
     Loop door de bucket array rij voor rij, en kopieer de waardes terug in de originele array. Deze stap heet de gathering pass. De volgorde van de hierboven genoemde getallen is dus nu 100, 3, 97.
     Herhaal dit proces voor elke volgende digit-positie (dus voor de tientallen, honderdtallen, etc.). Na de laatste gathering pass is de array gesorteerd.
@@ -49,6 +53,8 @@ def bucketSortFunctional(data: list) -> list:
 
 def bucketSort(data: list) -> list:
     """
+    Werkt alleen met alle gehele getallen
+
     Hij splits de data op in positieve en negatieven getallen. De negatieve getallen worden positief gemaakt, gesorteerd, positief gemaakt en tenslotte wordt de lijst omgedraaid.
     De positieve getallen worden alleen gesorteerd.
     Hij sorteerd de lijst met de functionaliteit van het bucketSort algoritme.
@@ -76,6 +82,8 @@ def bucketSort(data: list) -> list:
 
 def bucketSortRecursive(data: list) -> list:
     """
+    Werkt alleen met alle gehele getallen
+
     Hij splits de data op in positieve en negatieven getallen. De negatieve getallen worden positief gemaakt, gesorteerd, positief gemaakt en tenslotte wordt de lijst omgedraaid.
     De positieve getallen worden alleen gesorteerd.
     Hij sorteerd de lijst met de functionaliteit van het bucketSort algoritme.
@@ -104,6 +112,8 @@ def bucketSortRecursive(data: list) -> list:
 
 def bucketSortFloats(data: list, sortAlgoritme = bucketSort) -> list:
     """
+    Werkt alleen met alle gehele getallen en floats
+
     Deze functie maakt het mogelijk om met de functionaliteit van het bucketSort algoritme te kunnen werken met floats.
     Hij vermenigvuldigd elk item in de lijst met oneindig (max int van python) en cast dit naar een int om de ".0" weg te krijgen.
     Nu kan de lijst gesorteerd worden met als standaard het bucketSort algoritme.
