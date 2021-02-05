@@ -25,14 +25,6 @@ def plotTimeComplexity(algorithm):
     plt.show()
 
 
-
-
-# print(bucketSortRecursive(test))
-# print(bucketSort(test))
-
-print(bucketSort(test))
-print(bucketSortRecursive(test))
-
 randomTestLists = [random.sample(range(-10000, 1000), 1000),
                    random.sample(range(-10000, 10000), 10000),
                    random.sample(range(-300000, 300000), 30000)]
