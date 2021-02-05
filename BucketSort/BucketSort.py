@@ -112,7 +112,7 @@ def bucketSortRecursive(data: list) -> list:
 
 def bucketSortFloats(data: list, sortAlgoritme = bucketSort) -> list:
     """
-    Werkt alleen met alle gehele getallen en floats
+    Werkt met alle gehele getallen en/of floats
 
     Deze functie maakt het mogelijk om met de functionaliteit van het bucketSort algoritme te kunnen werken met floats.
     Hij vermenigvuldigd elk item in de lijst met oneindig (max int van python) en cast dit naar een int om de ".0" weg te krijgen.
