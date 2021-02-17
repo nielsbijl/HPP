@@ -29,9 +29,9 @@ class TestBucketSort(unittest.TestCase):
         self.assertEqual(bucketSortFunctionalRecursive(testCase, len(str(max(testCase)))), sorted(testCase))
 
     def testBucketSortFloats(self):
-        testCasePositive = [100.1, 3.128793749324870000000001123122111211111, 97.6, 5, 122, 1.000023, 10000, 2.99]
-        testCaseNegative = [-100.1, -3.1287937493248700000000000000000001, -97.6, -5, -122, -1.000023, -10000, -2.99]
-        testCasePositiveAndNegative = [-100.1, 3.1287937493248700000000000000000001, -97.6, 5, -122, -1.000023, 10000, -2.99]
+        testCasePositive = [100.1, 3.12871111, 97.6, 5, 122, 1.000023, 10000, 2.99]
+        testCaseNegative = [-100.1, -12871111, -97.6, -5, -122, -1.000023, -10000, -2.99]
+        testCasePositiveAndNegative = [-100.1, 12871111, -97.6, 5, -122, -1.000023, 10000, -2.99]
 
         self.assertEqual(bucketSortFloats(data=testCasePositive, sortAlgoritme=bucketSort), sorted(testCasePositive))
         self.assertEqual(bucketSortFloats(data=testCaseNegative, sortAlgoritme=bucketSort), sorted(testCaseNegative))

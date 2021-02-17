@@ -110,20 +110,37 @@ def bucketSortRecursive(data: list) -> list:
     return negative + positive
 
 
-def bucketSortFloats(data: list, sortAlgoritme = bucketSort) -> list:
+def getMultiplier(x):
+    residue = x - int(x)
+    if residue != 0:
+        multiply = 1
+    else:
+        return 1
+    while not (x * multiply).is_integer():
+        multiply = 10 * multiply
+    return multiply
+
+
+def bucketSortFloats(data: list, sortAlgoritme=bucketSort) -> list:
     """
     Werkt met alle gehele getallen en/of floats
 
     Deze functie maakt het mogelijk om met de functionaliteit van het bucketSort algoritme te kunnen werken met floats.
-    Hij vermenigvuldigd elk item in de lijst met oneindig (max int van python) en cast dit naar een int om de ".0" weg te krijgen.
+    Hij gaat eerst op zoek wat de grootste vermenigvuldiging is.
+    Hij vermenigvuldigd elk item in de lijst met de grootste vermenigvuldiging  en cast dit naar een int om de ".0" weg te krijgen.
     Nu kan de lijst gesorteerd worden met als standaard het bucketSort algoritme.
-    Dan worden alle items weer gedeeld door oneindig (max int van python) en het zijn weer de orginele items.
+    Dan worden alle items weer gedeeld door de grootste vermenigvuldiging en het zijn weer de orginele items.
 
     :param data: De lijst met floats die gesorteerd moet worden.
     :param sortAlgoritme: Het sorteer algoritme, standaard bucketSort.
     :return: De gesorteerde lijst.
     """
-    multiply = sys.maxsize
+
+    multiply = 1
+    for i in range(len(data)):
+        curr_multiply = getMultiplier(data[i])
+        if curr_multiply > multiply:
+            multiply = curr_multiply
     data = [int(item * multiply) for item in data]
     data = sortAlgoritme(data)
     data = [item / multiply for item in data]
