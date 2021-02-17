@@ -1,7 +1,6 @@
 import random
 import threading, logging, time
 import concurrent.futures
-from typing import List
 
 
 def merge_sort(sequence):
@@ -42,28 +41,24 @@ def chunkify(lst, chunks):
     return [lst[i::chunks] for i in range(chunks)]
 
 
-if __name__ == "__main__":
-
-    threads = 1024
-    data = random.sample(range(0, 100000), 100000)
-
+def threadedMergeSort(threads: int, data: list):
     if not (threads & (threads - 1) == 0) and threads != 0:
         raise Exception("Sorry, the amount of threads needs to be a power of 2")
 
-    print("Running threaded:")
-    threadedStart = time.time()
+    if threads:
+        """ Data opsplitsen in hoeveel threads je hebt. """
+        data = chunkify(data, threads)
 
-    """ Data opsplitsen in hoeveel threads je hebt. """
-    data = chunkify(data, threads)
-
-    """ Elke thread zijn stukje data mee geven en dit laten sorteren doormiddel van Merge Sort. """
-    outputs = []
-    with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
-        futures = []
-        for index in range(threads):
-            futures.append(executor.submit(merge_sort, data[index]))
-        for future in concurrent.futures.as_completed(futures):
-            outputs.append(future.result())
+        """ Elke thread zijn stukje data mee geven en dit laten sorteren doormiddel van Merge Sort. """
+        outputs = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
+            futures = []
+            for index in range(threads):
+                futures.append(executor.submit(merge_sort, data[index]))
+            for future in concurrent.futures.as_completed(futures):
+                outputs.append(future.result())
+    else:
+        outputs = [merge_sort(data)]
 
     """ 
     Alle gesorteerde losse data weer verder mergen.
@@ -76,8 +71,22 @@ if __name__ == "__main__":
             finalOutput.append(merge(outputs[i], outputs[i + 1]))
         outputs = finalOutput.copy()
 
-    print("Threaded time:", time.time() - threadedStart)
-    print(outputs[0])
+    return outputs[0]
+
+
+if __name__ == "__main__":
+
+    threads = 2
+    data = random.sample(range(0, 100000), 100000)
+
+    print("Running threaded merge sort:")
+    threadedStart = time.time()
+
+    print(threadedMergeSort(threads, data))
+
+    print("Sort time:", time.time() - threadedStart)
+
+
 
 
 
