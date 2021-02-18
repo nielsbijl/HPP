@@ -1,5 +1,5 @@
 from matplotlib import pyplot as plt
-from ThreadedMergeSort import merge_sort, threadedMergeSort
+from ThreadedMergeSort import mergeSort, threadedMergeSort
 import random
 import time
 
@@ -31,7 +31,10 @@ def plot2formulas(func1, func2, data, maxThreads):
     return x, y1, y2
 
 
-random.seed(1234)
+if __name__ == "__main__":
+    random.seed(1234)
 
-data = random.sample(range(0, 100000), 100000)
-plot2formulas(threadedMergeSort, merge_sort, data, 4)
+    threads = 2
+    data = random.sample(range(0, 100000), 100000)
+
+    plot2formulas(threadedMergeSort, mergeSort, data, 10)
