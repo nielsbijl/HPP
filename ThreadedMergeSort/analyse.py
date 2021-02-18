@@ -5,6 +5,13 @@ import time
 
 
 def plot2formulas(func1, func2, data, maxThreads):
+    """
+    This function plots 2 sort Algorithm
+    :param func1: A Threaded Merge Sort Algorithm
+    :param func2: A default sort lgorithm
+    :param data: The test list
+    :param maxThreads: The power of max amount of threads: 2^maxThreads
+    """
     x = []
     y1 = []
     y2 = []
