@@ -3,8 +3,8 @@ import random
 from ThreadedMergeSort.ThreadedMergeSort import threadedMergeSort
 
 
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
+class TestThreadedMergeSort(unittest.TestCase):
+    def testPoolThreadedMergeSort(self):
         data = random.sample(range(-10000, 100000), 1000)
         self.assertEqual(threadedMergeSort(0, data), sorted(data))
         self.assertEqual(threadedMergeSort(1, data), sorted(data))
