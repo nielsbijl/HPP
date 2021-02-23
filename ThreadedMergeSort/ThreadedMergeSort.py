@@ -36,6 +36,12 @@ def merge(left, right):
 
 
 def chunkify(lst, chunks):
+    """
+    This function splits a list in x amount of chunks and returns it in a list.
+    :param lst: The list that will be chunkified
+    :param chunks: The amount of chunks the list will be splitted
+    :return: A list of lists
+    """
     return [lst[i::chunks] for i in range(chunks)]
 
 
