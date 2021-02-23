@@ -7,6 +7,7 @@ class ThreadWithResult(threading.Thread):
     This ThreadWithResult class makes it possible te get
     the result of a thread
     """
+
     def __init__(self, target, args):
         self.target = target
         self.args = args
@@ -30,9 +31,6 @@ def workerThreadsMergeSort(lst):
         thread.start()
         return merge(workerThreadsMergeSort(lstChunks[0]), thread.result)
     return mergeSort(lst)
-
-
-print(workerThreadsMergeSort([8, 10, 1, 9, 3, 4, 5, 2]))
 
 
 """
