@@ -15,8 +15,5 @@ class TestThreadedMergeSort(unittest.TestCase):
         self.assertEqual(threadedMergeSort(32, data), sorted(data))
 
 
-
-
-
 if __name__ == '__main__':
     unittest.main()
