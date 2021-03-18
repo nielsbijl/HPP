@@ -50,7 +50,7 @@ def functionality(n, rank, amountRanks, amountOfProcesses):
     return sum(zeef)
 
 
-def zeefVanEratosthenesMPI(n, processes):
+def zeefVanEratosthenesMPIandMultiProcessing(n, processes):
     startTime = time.time()
 
     comm = MPI.COMM_WORLD
@@ -67,7 +67,7 @@ def zeefVanEratosthenesMPI(n, processes):
 
 
 if __name__ == "__main__":
-    zeefVanEratosthenesMPI(10000, 2)
+    zeefVanEratosthenesMPIandMultiProcessing(10000, 2)
 
 """
 RUN
