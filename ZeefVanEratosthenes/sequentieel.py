@@ -2,9 +2,9 @@ import math
 
 
 def zeefVanEratosthenes(n):
-    zeef = [True for item in range(n + 1)]
-    zeef[0] = False
-    zeef[1] = False
+    zeef = [1 for item in range(n + 1)]
+    zeef[0] = 0
+    zeef[1] = 0
     kStart = 2  # Aangezien 0 en 1 geen priem is, zetten we k op 2.
     for k in range(kStart, math.ceil(math.sqrt(n))):
         for x in range(0, len(zeef), k):
@@ -28,3 +28,4 @@ def zeefVanEratosthenesVectorVersie(n):
 if __name__ == "__main__":
     primes = zeefVanEratosthenes(1000)
     print(len(primes))
+    print(zeefVanEratosthenesVectorVersie(1000))
