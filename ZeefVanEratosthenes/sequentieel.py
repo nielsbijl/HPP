@@ -19,7 +19,7 @@ def zeefVanEratosthenesVectorVersie(n):
     zeef[0] = 0
     zeef[1] = 0
     zeef[4::2] = [0 for _ in range(len(zeef[4::2]))]
-    for i in range(3, int(1 + n**0.5), 2):
+    for i in range(3, math.ceil(math.sqrt(n)), 2):
         if zeef[i]:
             zeef[i*i::2*i] = [0 for _ in range(len(zeef[i*i::2*i]))]
     return sum(zeef)
