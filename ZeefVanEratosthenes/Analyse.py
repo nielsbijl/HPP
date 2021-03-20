@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 
 
 def timeFunction(function, n):
+    """
+    This functions times a function with 1 parameter
+    """
     startTime = time.time()
     function(n)
     return time.time() - startTime

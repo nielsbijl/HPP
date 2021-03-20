@@ -4,6 +4,13 @@ import time
 
 
 def functionality(n, rank, amountRanks):
+    """
+    This function uses the sieve of eratosthenes over a sublist
+    :param n: The length of the total list
+    :param rank: Which computer I am
+    :param amountRanks: The total amount of computers
+    :return: The amount of primes in this sublist
+    """
     num = int(n / amountRanks) * rank  # Bepalen welke deel van de totale zeef we zitten
     if (amountRanks - 1) == rank:  # Als het de laatste rank is
         zeef = [1 for _ in range(int(n / amountRanks) + 1)]  # Aanmaken van de deelzeef
@@ -21,6 +28,10 @@ def functionality(n, rank, amountRanks):
 
 
 def zeefVanEratosthenesMPI(n):
+    """
+    This function uses MPI to devide the sieve of eratosthenes with sublists to loop over.
+    :param n: Total length of the sieve
+    """
     startTime = time.time()
 
     comm = MPI.COMM_WORLD

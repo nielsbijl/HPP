@@ -2,7 +2,12 @@ import math
 
 
 def zeefVanEratosthenes(n):
-    zeef = [1 for item in range(n + 1)]
+    """
+    This function is the sequential version of the sieve of eratosthenes
+    :param n: Lenght of the sieve
+    :return: The amount of primes of the sieve
+    """
+    zeef = [1 for _ in range(n + 1)]
     zeef[0] = 0
     zeef[1] = 0
     kStart = 2  # Aangezien 0 en 1 geen priem is, zetten we k op 2.
@@ -11,10 +16,15 @@ def zeefVanEratosthenes(n):
             number = x
             if number >= k * 2:
                 zeef[x] = 0
-    return [i for i in range(len(zeef)) if zeef[i]]  # return de priemgetallen
+    return sum(zeef)  # return de hoeveelheid priemgetallen
 
 
 def zeefVanEratosthenesVectorVersie(n):
+    """
+    This function is the vectorized sequential version of the sieve of eratosthenes
+    :param n: The length of the sieve
+    :return: The amount of primes of the sieve
+    """
     zeef = [1 for _ in range(n + 1)]
     zeef[0] = 0
     zeef[1] = 0
@@ -27,5 +37,5 @@ def zeefVanEratosthenesVectorVersie(n):
 
 if __name__ == "__main__":
     primes = zeefVanEratosthenes(1000)
-    print(len(primes))
+    print(primes)
     print(zeefVanEratosthenesVectorVersie(1000))
